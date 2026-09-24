@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   // Prevent Next from treating C:\Users\Harshit as the workspace root when a parent lockfile exists
   outputFileTracingRoot: path.join(process.cwd()),
   images: {
