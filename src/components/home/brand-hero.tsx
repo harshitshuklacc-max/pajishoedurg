@@ -14,7 +14,7 @@ export function BrandHero({
   const hasLogo = !!(settings.logoUrl || settings.logoPublicId);
 
   return (
-    <section className="relative overflow-hidden bg-paji-deep text-white">
+    <section className="relative w-full overflow-hidden bg-paji-deep text-white">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-10%,rgba(249,115,22,0.22),transparent_55%)]" />
       <div className="pointer-events-none absolute -right-24 top-20 h-64 w-64 rounded-full bg-paji-gold/10 blur-3xl" />
       <div className="pointer-events-none absolute -left-16 bottom-0 h-48 w-48 rounded-full bg-paji-orange/15 blur-3xl" />
@@ -24,19 +24,19 @@ export function BrandHero({
           Premium footwear · Durg, Chhattisgarh
         </p>
 
-        <div className="mx-auto mt-8 flex justify-center">
-          <div className="rounded-2xl border-2 border-paji-gold/40 bg-gradient-to-br from-white/10 to-black/20 p-2 shadow-2xl ring-1 ring-white/10">
+        <div className="mx-auto mt-6 flex justify-center">
+          <div className="inline-flex rounded-2xl border-2 border-paji-gold/40 bg-gradient-to-br from-white/10 to-black/20 p-1.5 shadow-2xl ring-1 ring-white/10">
             {hasLogo ? (
               <OptimizedImage
                 src={settings.logoUrl}
                 publicId={settings.logoPublicId || undefined}
-                alt=""
-                preset="hero"
-                className="h-28 w-28 rounded-xl object-cover md:h-36 md:w-36"
+                alt={settings.storeName}
+                preset="logo"
+                className="block h-auto w-[9.5rem] max-h-[9.5rem] rounded-xl object-contain sm:w-[11rem] sm:max-h-[11rem]"
                 priority
               />
             ) : (
-              <div className="flex h-28 w-28 items-center justify-center rounded-xl bg-paji-charcoal text-5xl md:h-36 md:w-36">
+              <div className="flex h-[9.5rem] w-[9.5rem] items-center justify-center rounded-xl bg-paji-charcoal/50 text-4xl sm:h-[11rem] sm:w-[11rem] sm:text-5xl">
                 👟
               </div>
             )}

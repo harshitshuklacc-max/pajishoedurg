@@ -49,7 +49,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className={`${geistSans.variable} ${outfit.variable} ${cormorant.variable} flex min-h-screen flex-col font-sans`}>
         <AnnouncementBar settings={settings} />
         <Header settings={settings} />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 w-full min-w-0 overflow-x-hidden">{children}</main>
         <Footer settings={settings} />
         <FloatingActions phone={settings.phone} />
       </body>

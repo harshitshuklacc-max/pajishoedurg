@@ -3,6 +3,7 @@ import path from "path";
 
 const nextConfig: NextConfig = {
   eslint: {
+    // Avoid blocking Vercel deploys when eslint-config-next peer resolution differs in CI
     ignoreDuringBuilds: true,
   },
   // Prevent Next from treating C:\Users\Harshit as the workspace root when a parent lockfile exists

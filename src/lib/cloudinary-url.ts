@@ -1,6 +1,6 @@
 /** Client-safe Cloudinary URL helpers (no Node SDK — safe for browser bundles). */
 
-export type ImagePreset = "thumbnail" | "card" | "product" | "zoom" | "hero" | "category";
+export type ImagePreset = "thumbnail" | "card" | "product" | "zoom" | "hero" | "category" | "logo";
 
 const TRANSFORMS: Record<ImagePreset, string> = {
   thumbnail: "c_fill,w_120,h_120,q_auto,f_auto",
@@ -9,6 +9,8 @@ const TRANSFORMS: Record<ImagePreset, string> = {
   zoom: "c_limit,w_1200,q_auto,f_auto",
   hero: "c_fill,w_1920,h_800,q_auto,f_auto",
   category: "c_fill,w_600,h_400,q_auto,f_auto",
+  /** Full logo visible — no crop (homepage & branding) */
+  logo: "c_limit,w_512,h_512,q_auto,f_auto",
 };
 
 export function cloudinaryUrl(
