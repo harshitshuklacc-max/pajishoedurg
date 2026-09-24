@@ -3,6 +3,9 @@ import { requireAdmin } from "@/lib/auth/require-admin";
 import { validateUpload } from "@/lib/cloudinary-url";
 import { uploadBuffer } from "@/lib/cloudinary.server";
 
+export const maxDuration = 120;
+export const dynamic = "force-dynamic";
+
 export async function POST(req: Request) {
   const auth = await requireAdmin();
   if (auth.error) {
