@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Geist, Outfit } from "next/font/google";
+import { Cormorant_Garamond, Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { AnnouncementBar } from "@/components/store/announcement-bar";
 import { FloatingActions } from "@/components/store/floating-actions";
@@ -8,12 +8,22 @@ import { Footer } from "@/components/store/footer";
 import { getStoreSettings } from "@/lib/settings";
 import { faviconFromLogo } from "@/lib/cloudinary-url";
 
-const geistSans = Geist({ subsets: ["latin"], variable: "--font-geist-sans" });
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-display", weight: ["400", "500", "600", "700", "800"] });
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+  display: "swap",
+});
+const outfit = Outfit({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-serif",
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -46,7 +56,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const settings = await getStoreSettings();
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${outfit.variable} ${cormorant.variable} flex min-h-screen flex-col font-sans`}>
+      <body className={`${sans.variable} ${outfit.variable} ${cormorant.variable} flex min-h-screen flex-col font-sans`}>
         <AnnouncementBar settings={settings} />
         <Header settings={settings} />
         <main className="flex-1 w-full min-w-0 overflow-x-hidden">{children}</main>
