@@ -40,13 +40,19 @@ export function GlimpsesSection({
 
   storeTagline,
 
+  showCopy = false,
+
 }: {
 
   videos: GlimpseVideo[];
 
-  sectionTitle: string;
+  sectionTitle?: string;
 
   storeTagline?: string;
+
+  /** When true, shows title block inside this section (legacy). Homepage uses GlimpsesIntro separately. */
+
+  showCopy?: boolean;
 
 }) {
 
@@ -90,31 +96,12 @@ export function GlimpsesSection({
 
   return (
 
-    <section className="border-y border-black/5 bg-paji-gray-light py-16 md:py-24" aria-labelledby="glimpses-heading">
+    <section
+      className="border-b border-black/5 bg-paji-gray-light py-16 md:py-24"
+      aria-label={showCopy && sectionTitle ? sectionTitle : "Store videos"}
+    >
 
       <div className="mx-auto max-w-7xl px-4 lg:px-6">
-
-        <div className="mb-10 text-center md:mb-12">
-
-          <p className="section-eyebrow">Store life</p>
-
-          <h2 id="glimpses-heading" className="section-title mt-3">
-
-            {sectionTitle}
-
-          </h2>
-
-          {storeTagline && (
-
-            <p className="mx-auto mt-3 max-w-lg text-sm text-gray-600">{storeTagline}</p>
-
-          )}
-
-          <p className="font-serif mt-4 text-lg text-paji-deep/80">Crafted to be worn. Filmed to be felt.</p>
-
-        </div>
-
-
 
         <div className="mb-6 flex justify-center gap-2 sm:hidden">
 
@@ -285,6 +272,28 @@ export function GlimpsesSection({
           </button>
 
         </div>
+
+
+
+        {showCopy && sectionTitle && (
+
+          <div className="mt-10 text-center md:mt-12">
+
+            <p className="section-eyebrow">Store life</p>
+
+            <h2 className="section-title mt-3">{sectionTitle}</h2>
+
+            {storeTagline && (
+
+              <p className="mx-auto mt-3 max-w-lg text-sm text-gray-600">{storeTagline}</p>
+
+            )}
+
+            <p className="font-serif mt-4 text-lg text-paji-deep/80">Crafted to be worn. Filmed to be felt.</p>
+
+          </div>
+
+        )}
 
       </div>
 

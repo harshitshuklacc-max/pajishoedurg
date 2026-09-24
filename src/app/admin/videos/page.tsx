@@ -156,7 +156,7 @@ export default function AdminVideosPage() {
     <div className="max-w-3xl">
       <h1 className="text-2xl font-bold">Our Glimpses — Videos</h1>
       <p className="mt-1 text-sm text-gray-500">
-        Upload MP4 or WebM clips (max 50MB). They appear at the bottom of the homepage.
+        Upload MP4 or WebM clips (max 50MB). Videos show below the hero; the &quot;Our Glimpses&quot; heading sits under Shop by Category.
       </p>
 
       {error && <p className="mt-4 rounded-lg bg-red-50 p-3 text-sm text-red-700">{error}</p>}

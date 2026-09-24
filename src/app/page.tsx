@@ -10,6 +10,8 @@ import { BrandHero } from "@/components/home/brand-hero";
 
 import { GlimpsesSection } from "@/components/home/glimpses-section";
 
+import { GlimpsesIntro } from "@/components/home/glimpses-intro";
+
 import { ShopByCategorySection } from "@/components/home/shop-by-category-section";
 
 import { TrustSections } from "@/components/home/trust-sections";
@@ -124,6 +126,36 @@ export default async function HomePage() {
 
 
 
+      {glimpsesEnabled && activeVideos.length > 0 && (
+
+        <GlimpsesSection
+
+          showCopy={false}
+
+          videos={activeVideos.map((v) => ({
+
+            id: v.id,
+
+            title: v.title,
+
+            description: v.description,
+
+            videoUrl: v.videoUrl,
+
+            thumbnailUrl: v.thumbnailUrl,
+
+            autoplay: v.autoplay,
+
+            loop: v.loop,
+
+          }))}
+
+        />
+
+      )}
+
+
+
       <ShopByCategorySection
 
         categories={cats.map((cat) => ({
@@ -139,6 +171,14 @@ export default async function HomePage() {
         }))}
 
       />
+
+
+
+      {glimpsesEnabled && (
+
+        <GlimpsesIntro sectionTitle={glimpsesTitle} storeTagline={settings.businessDescription} />
+
+      )}
 
 
 
@@ -197,38 +237,6 @@ export default async function HomePage() {
 
 
       <TrustSections settings={settings} />
-
-
-
-      {glimpsesEnabled && activeVideos.length > 0 && (
-
-        <GlimpsesSection
-
-          sectionTitle={glimpsesTitle}
-
-          storeTagline={settings.businessDescription}
-
-          videos={activeVideos.map((v) => ({
-
-            id: v.id,
-
-            title: v.title,
-
-            description: v.description,
-
-            videoUrl: v.videoUrl,
-
-            thumbnailUrl: v.thumbnailUrl,
-
-            autoplay: v.autoplay,
-
-            loop: v.loop,
-
-          }))}
-
-        />
-
-      )}
 
     </>
 
