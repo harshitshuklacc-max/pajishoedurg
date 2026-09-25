@@ -22,7 +22,7 @@ const WHY = [
 
 export function TrustSections({ settings }: { settings: StoreSettings }) {
   const tel = settings.phone.replace(/\s/g, "");
-  const mapsQuery = encodeURIComponent(settings.address);
+  const mapsQuery = encodeURIComponent("Paji Shoes Durg");
 
   return (
     <>
